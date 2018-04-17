@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded",() =>{
 const gameContent = document.getElementById('game-content')
-const createPlayer = document.getElementById('create-player')
   function renderForm(){
     return `
     <label for="name">Name: </label>
@@ -17,9 +16,16 @@ const createPlayer = document.getElementById('create-player')
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({name: name})
-    })
+    }).then( e => {
+      gameContent.innerHTML = ""
+      const gameScreen = document.createElement('div')
+      gameScreen.id = 'game-screen'
+      gameContent.appendChild(gameScreen)
+      Game.start()
+      })
     }
   })
+
 
 
 
