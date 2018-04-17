@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded",() =>{
 const gameContent = document.getElementById('game-content')
+const gameScreen = () => (document.querySelector("#game-screen"))
+let bulletArray = []
   function renderForm(){
     return `
     <label for="name">Name: </label>
@@ -21,11 +23,20 @@ const gameContent = document.getElementById('game-content')
       const gameScreen = document.createElement('div')
       gameScreen.id = 'game-screen'
       gameContent.appendChild(gameScreen)
-      Game.start()
-      })
+      }).then(e =>{
+      const gameScreen = document.querySelector("#game-screen")
+      const player = document.createElement('div')
+      player.id = 'player'
+      player.style = "top: 300px; left:700px"
+      gameScreen.appendChild(player)
+
+
+    })
     }
   })
 
+
+EventListener.moveListener()
 
 
 

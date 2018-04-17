@@ -1,5 +1,19 @@
 #game-screen {
-  width: 400px;
-  height: 400px;
+  width: 1400px;
+  height: 600px;
   background: black;
+}
+
+#player {
+  width: 5px;
+  height: 10px;
+  background: white;
+  position: absolute;
+}
+
+#bullet {
+  width: 2px;
+  height: 2px;
+  background: blue;
+  position: absolute;
 }
