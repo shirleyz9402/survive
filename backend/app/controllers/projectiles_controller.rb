@@ -1,2 +1,0 @@
-class ProjectilesController < ApplicationController
-end
