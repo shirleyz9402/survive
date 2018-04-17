@@ -2,28 +2,11 @@
 
 const currentPlayer = function(){return document.getElementById('player')}
 
-
 const playerPositionX =function(){
 return parseInt(currentPlayer().style.left.replace("px",""))}
 
 const playerPositionY = function(){
 return parseInt(currentPlayer().style.top.replace("px",""))}
-
-const bullet = function(){
-  console.log("calling bullet")
-  const shot = document.createElement('div')
-  shot.className = 'bullet'
-  shot.style =`top:${playerPositionY()} ; left:${playerPositionX()}`
-  if (bulletArray[bulletArray.length]){
-    shot.dataset.id = (bulletArray.length + 1)
-    }
-  else{
-    shot.dataset.id = bulletArray.length
-  }
-  bulletArray.push(shot)
-  gameScreen().appendChild(shot)
-}
-
 
 class Player{
   constructor(name,score = 0,height = 10,width = 5,speed = 4){
@@ -62,16 +45,14 @@ class Player{
 
 
   }
-  static shootDown(){
-  bullet()
-  let shotBullet = bulletArray.last
-  }
-
-  static shootUp (){}
-
-  static shootRight(){}
-
-  static shootLeft(){}
+  // static shootDown(){
+  // }
+  //
+  // static shootUp (){}
+  //
+  // static shootRight(){}
+  //
+  // static shootLeft(){}
 
 
   //

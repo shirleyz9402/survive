@@ -31,16 +31,24 @@ static currentMoves(){
     Player.movePlayerDown()
   }
   if (key[83]){
-    Player.shootDown()
+    let bullet = new Bullet
+    bullet.renderBullet()
+    bullet.shootDown()
   }
   if (key[65]){
-    Player.shootLeft()
+    let bullet = new Bullet
+    bullet.renderBullet()
+    bullet.shootLeft()
   }
   if (key[68]){
-    Player.shootRight()
+    let bullet = new Bullet
+    bullet.renderBullet()
+    bullet.shootRight()
   }
   if (key[87]){
-    Player.shootUp()
+    let bullet = new Bullet
+    bullet.renderBullet()
+    bullet.shootUp()
   }
 }
 

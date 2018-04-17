@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded",() =>{
 const gameContent = document.getElementById('game-content')
 const gameScreen = () => (document.querySelector("#game-screen"))
-let bulletArray = []
   function renderForm(){
     return `
     <label for="name">Name: </label>
