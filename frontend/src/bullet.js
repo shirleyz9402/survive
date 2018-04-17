@@ -52,16 +52,24 @@ class Bullet{
   }
   shootUp(){
     let bullet = findBullet(this.id)
-    if (bulletPositionY(this.id) > 8){
       setInterval(() => {
-         bullet.style.top = `${bulletPositionY(this.id) - 20}px`}, 1)
-    }
+        if (bulletPositionY(this.id) > 8){
+         bullet.style.top = `${bulletPositionY(this.id) - 1}px`}
+        else {
+          bullet.remove()
+         }
+       }, 1)
+
   }
   shootDown(){
     let bullet = findBullet(this.id)
-    while (bulletPositionY(this.id) < 600){
-      setTimeout(()=>{bullet.style.top = `${bulletPositionY(this.id) + 1}px`},1)
-    }
+    setInterval(() => {
+      if (bulletPositionY(this.id) < 600){
+       bullet.style.top = `${bulletPositionY(this.id) - 1}px`}
+      else {
+        bullet.remove()
+       }
+     }, 1)
   }
 
 
