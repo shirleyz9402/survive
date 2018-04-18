@@ -5,15 +5,15 @@
 }
 
 #player {
-  width: 5px;
-  height: 10px;
+  width: 15px;
+  height: 30px;
   background: white;
   position: absolute;
 }
 
 .bullet {
-  width: 2px;
-  height: 2px;
+  width: 6px;
+  height: 6px;
   background: blue;
   position: absolute;
 }

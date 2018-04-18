@@ -35,41 +35,56 @@ class Bullet{
   }
 
   shootLeft(){
-    console.log('hi')
     let bullet = findBullet(this.id)
-    if (bulletPositionX(this.id) > 8){
-      setInterval(() => {
-         bullet.style.left = `${bulletPositionX(this.id) - 1}px`}, 1)
-    }
+    const downInterval = setInterval(() => {
+      if (bulletPositionX(this.id) > 8){
+       bullet.style.left = `${bulletPositionX(this.id) - 4}px`}
+      else {
+        bullet.remove()
+        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+        clearInterval(downInterval)
+        console.log(bulletArray)
+       }
+     }, 15)
 
   }
   shootRight(){
     let bullet = findBullet(this.id)
-    if (bulletPositionX(this.id) < 1408){
-      setInterval(() => {
-         bullet.style.left = `${bulletPositionX(this.id) + 1}px`}, 1)
-    }
+    const downInterval = setInterval(() => {
+      if (bulletPositionX(this.id) < 1404){
+       bullet.style.left = `${bulletPositionX(this.id) + 4}px`}
+      else {
+        bullet.remove()
+        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+        clearInterval(downInterval)
+        console.log(bulletArray)
+       }
+     }, 15)
   }
   shootUp(){
     let bullet = findBullet(this.id)
-      setInterval(() => {
-        if (bulletPositionY(this.id) > 8){
-         bullet.style.top = `${bulletPositionY(this.id) - 1}px`}
-        else {
-          bullet.remove()
-         }
-       }, 1)
-
+    const downInterval = setInterval(() => {
+      if (bulletPositionY(this.id) > 8){
+       bullet.style.top = `${bulletPositionY(this.id) - 4}px`}
+      else {
+        bullet.remove()
+        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+        clearInterval(downInterval)
+        console.log(bulletArray)
+       }
+     }, 15)
   }
   shootDown(){
     let bullet = findBullet(this.id)
-    setInterval(() => {
+    const downInterval = setInterval(() => {
       if (bulletPositionY(this.id) < 600){
-       bullet.style.top = `${bulletPositionY(this.id) - 1}px`}
+       bullet.style.top = `${bulletPositionY(this.id) + 4}px`}
       else {
         bullet.remove()
+        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+        clearInterval(downInterval)
        }
-     }, 1)
+     }, 15)
   }
 
 
