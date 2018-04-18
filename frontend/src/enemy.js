@@ -1,6 +1,5 @@
 let enemyArray = []
 let enemyId = 0
-
 const findEnemy = function(id){
   return document.querySelector(`[data-enemy="${id}"]`)
 }
@@ -26,6 +25,9 @@ enemyInterval()
 
 class Enemy {
 
+static all(){
+  return enemyArray}
+
 
 constructor(hp = 1, damage = 1, movement = 0){
   this.hp = hp
@@ -41,11 +43,16 @@ renderEnemy(){
   const enemy = document.createElement('div')
   enemy.className = 'enemy'
   enemy.style =`top:${randomRange(8,600)}px ; left:${randomRange(8,1404)}px`
+  enemy.style.width = "10px "
+  enemy.style.height= "15px"
   enemy.dataset.enemy = this.id
   gameScreen.appendChild(enemy)
   movementPatterns[this.movement](this.id)
 
   console.log(findEnemy(this.id))}
+}
+static clearEnemy(id){
+  enemyArray = enemyArray.filter(enemy => enemy.id != id)
 }
 }
 
@@ -53,23 +60,27 @@ const defaultMovement = (argument) =>{
 
     let enemy = findEnemy(argument)
 
-    setInterval(() => {
+  let enemyInterval = setInterval(() => {
+
     let choiceRange = randomRange(0,30)
-    let distanceRange = randomRange(2,8)
+    let distanceRange = randomRange(2,4)
 
-      if(enemyPositionX(argument) >= 8 && choiceRange === 1){////leftmove
-        enemy.style.left = `${enemyPositionX(argument) - distanceRange}px`
-        }
-      else if(enemyPositionX(argument) <= 1398 && choiceRange === 2) {////rightmove
-          enemy.style.left = `${enemyPositionX(argument) + distanceRange}px`
-        }
+      if (findEnemy(argument) == null){
+      clearInterval(enemyInterval)}
+      else{
+        if(enemyPositionX(argument) >= 8 && choiceRange === 1){////leftmove
+          enemy.style.left = `${enemyPositionX(argument) - distanceRange}px`
+          }
+        else if(enemyPositionX(argument) <= 1398 && choiceRange === 2) {////rightmove
+            enemy.style.left = `${enemyPositionX(argument) + distanceRange}px`
+          }
 
-      if(enemyPositionY(argument) >= 8 && choiceRange === 4){
-        enemy.style.top = `${enemyPositionY(argument) - distanceRange}px`
-      }
-      else if(enemyPositionY(argument) <= 596 && choiceRange === 5){
-        enemy.style.top = `${enemyPositionY(argument) + distanceRange}px`
-      }
+        if(enemyPositionY(argument) >= 8 && choiceRange === 4){
+          enemy.style.top = `${enemyPositionY(argument) - distanceRange}px`
+        }
+        else if(enemyPositionY(argument) <= 596 && choiceRange === 5){
+          enemy.style.top = `${enemyPositionY(argument) + distanceRange}px`
+        }}
 
 
       }, 1)

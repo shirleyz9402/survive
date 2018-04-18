@@ -12,15 +12,11 @@
 }
 
 .bullet {
-  width: 6px;
-  height: 6px;
   background: blue;
   position: absolute;
 }
 
 .enemy {
-  width: 10px;
-  height: 15px;
   background: red;
   position: absolute;
 }

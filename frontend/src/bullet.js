@@ -1,3 +1,6 @@
+let bulletArray = []
+let bulletId = 0
+
 const findBullet = function(id){
   return document.querySelector(`[data-bullet="${id}"]`)
 }
@@ -10,12 +13,40 @@ const bulletPositionY = function(id){
   return parseInt(bullet.style.top.replace('px',''))
 }
 
-let bulletArray = []
-let bulletId = 0
+const bulletCollisionCheck = function(bulletId,enemyId){
+  bullet = findBullet(bulletId)
+  enemy = findEnemy(enemyId)
+  return!(
+        ((bulletPositionY(bulletId) + parseInt(bullet.style.height)) < (enemyPositionY(enemyId))) ||
+        (bulletPositionY(bulletId) > (enemyPositionY(enemyId) + parseInt(enemy.style.height))) ||
+        ((bulletPositionX(bulletId) + parseInt(bullet.style.width)) < enemyPositionX(enemyId)) ||
+        (bulletPositionX(bulletId) > (enemyPositionX(enemyId) + parseInt(enemy.style.width))));
+
+}
+
+
+const bulletCollisionReturn = function(bulletId,enemyId){
+  bullet = findBullet(bulletId)
+  enemy = findEnemy(enemyId)
+  if (bulletCollisionCheck(bulletId,enemyId)){
+    findEnemy(enemyId).remove()
+    Enemy.clearEnemy(enemyId)
+    clearInterval()
+    bullet.remove()
+    bulletArray = Bullet.all.filter(bullet => bullet.id != bulletId)
+    console.log(enemy)
+  }
+
+}
+
 class Bullet{
   constructor(){
   this.id = ++bulletId
   bulletArray.push(this)
+  }
+
+  static all(){
+    return bulletArray
   }
 
   renderBullet(){
@@ -23,57 +54,93 @@ class Bullet{
     const shot = document.createElement('div')
     shot.className = 'bullet'
     shot.style =`top:${playerPositionY()}px ; left:${playerPositionX()}px`
+    shot.style.width = "6px"
+    shot.style.height = "6px"
     shot.dataset.bullet = this.id
     gameScreen.appendChild(shot)
   }
 
   shootLeft(){
     let bullet = findBullet(this.id)
+    let bulletId = this.id
     const downInterval = setInterval(() => {
-      if (bulletPositionX(this.id) > 8){
-       bullet.style.left = `${bulletPositionX(this.id) - 4}px`}
-      else {
-        bullet.remove()
-        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+      if (findBullet(this.id) == null){
+        console.log("hello")
         clearInterval(downInterval)
-        console.log(bulletArray)
+      }
+      else {
+        if (bulletPositionX(this.id) > 8){
+         bullet.style.left = `${bulletPositionX(this.id) - 4}px`
+         Enemy.all().map(enemy => {bulletCollisionReturn(bulletId,enemy.id)})
+       }
+        else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+          console.log(bulletArray)
+         }
        }
      }, 15)}
 
 
   shootRight(){
+
     let bullet = findBullet(this.id)
+    let bulletId = this.id
     const downInterval = setInterval(() => {
-      if (bulletPositionX(this.id) < 1404){
-       bullet.style.left = `${bulletPositionX(this.id) + 4}px`}
-      else {
-        bullet.remove()
-        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+      if (findBullet(this.id) == null){
         clearInterval(downInterval)
-        console.log(bulletArray)
+      }
+      else{
+        if (bulletPositionX(this.id) < 1404){
+         bullet.style.left = `${bulletPositionX(this.id) + 4}px`
+        Enemy.all().map(enemy => {bulletCollisionReturn(bulletId,enemy.id)})
+       }
+       else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+          console.log(bulletArray)
+         }
        }
      }, 15)}
   shootUp(){
     let bullet = findBullet(this.id)
+    let bulletId = this.id
     const downInterval = setInterval(() => {
-      if (bulletPositionY(this.id) > 8){
-       bullet.style.top = `${bulletPositionY(this.id) - 4}px`}
-      else {
-        bullet.remove()
-        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+      if (findBullet(this.id) == null){
         clearInterval(downInterval)
-        console.log(bulletArray)
+      }
+      else{
+        if (bulletPositionY(this.id) > 8){
+         bullet.style.top = `${bulletPositionY(this.id) - 4}px`
+         Enemy.all().map(enemy => {bulletCollisionReturn(bulletId,enemy.id)})
+       }
+        else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+          console.log(bulletArray)
+         }
        }
      }, 15)}
   shootDown(){
     let bullet = findBullet(this.id)
+    let bulletId = this.id
     const downInterval = setInterval(() => {
-      if (bulletPositionY(this.id) < 600){
-       bullet.style.top = `${bulletPositionY(this.id) + 4}px`}
-      else {
-        bullet.remove()
-        bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+      if (findBullet(this.id) == null){
         clearInterval(downInterval)
+      }
+      else{
+        if (bulletPositionY(this.id) < 600){
+         bullet.style.top = `${bulletPositionY(this.id) + 4}px`
+         Enemy.all().map(enemy => {bulletCollisionReturn(bulletId,enemy.id)})
+       }
+        else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+         }
        }
      }, 15)}
 
