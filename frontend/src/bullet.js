@@ -1,4 +1,3 @@
-// const currentBullet = () => (document.getElementsByClassName('bullet')[data.bullet])
 const findBullet = function(id){
   return document.querySelector(`[data-bullet="${id}"]`)
 }
@@ -10,13 +9,7 @@ const bulletPositionY = function(id){
   let bullet = findBullet(id)
   return parseInt(bullet.style.top.replace('px',''))
 }
-// const playerPositionX =function(){
-//   return parseInt(bulletArray.last.style.left.replace("px",""))
-// }
-//
-// const playerPositionY = function(){
-//   return parseInt(bulletArray.last.style.top.replace("px",""))
-// }
+
 let bulletArray = []
 let bulletId = 0
 class Bullet{
@@ -36,6 +29,7 @@ class Bullet{
 
   shootLeft(){
     let bullet = findBullet(this.id)
+<<<<<<< HEAD
     const downInterval = setInterval(() => {
       if (bulletPositionX(this.id) > 8){
        bullet.style.left = `${bulletPositionX(this.id) - 4}px`}
@@ -46,17 +40,34 @@ class Bullet{
         console.log(bulletArray)
        }
      }, 15)
+=======
+      const downInterval = setInterval(() => {
+        if (bulletPositionX(this.id) > 8){
+         bullet.style.left = `${bulletPositionX(this.id) - 2}px`}
+        else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+         }
+       }, 1)
+    }
+>>>>>>> shirley
 
-  }
   shootRight(){
     let bullet = findBullet(this.id)
     const downInterval = setInterval(() => {
+<<<<<<< HEAD
       if (bulletPositionX(this.id) < 1404){
        bullet.style.left = `${bulletPositionX(this.id) + 4}px`}
+=======
+      if (bulletPositionX(this.id) < 1408){
+       bullet.style.left = `${bulletPositionX(this.id) + 2}px`}
+>>>>>>> shirley
       else {
         bullet.remove()
         bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
         clearInterval(downInterval)
+<<<<<<< HEAD
         console.log(bulletArray)
        }
      }, 15)
@@ -73,12 +84,33 @@ class Bullet{
         console.log(bulletArray)
        }
      }, 15)
+=======
+       }
+     }, 1)
+  }
+  shootUp(){
+    let bullet = findBullet(this.id)
+      const downInterval = setInterval(() => {
+        if (bulletPositionY(this.id) > 8){
+         bullet.style.top = `${bulletPositionY(this.id) - 2}px`}
+        else {
+          bullet.remove()
+          bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
+          clearInterval(downInterval)
+         }
+       }, 1)
+
+>>>>>>> shirley
   }
   shootDown(){
     let bullet = findBullet(this.id)
     const downInterval = setInterval(() => {
       if (bulletPositionY(this.id) < 600){
+<<<<<<< HEAD
        bullet.style.top = `${bulletPositionY(this.id) + 4}px`}
+=======
+       bullet.style.top = `${bulletPositionY(this.id) + 2}px`}
+>>>>>>> shirley
       else {
         bullet.remove()
         bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
