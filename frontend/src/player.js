@@ -20,26 +20,26 @@ class Player{
   static movePlayerLeft(){
 
     if (playerPositionX() > 8){
-    currentPlayer().style.left = `${playerPositionX() - 2}px`
+    currentPlayer().style.left = `${playerPositionX() - 4}px`
     }
   }
 
   static movePlayerRight(){
     if (playerPositionX() < 1404){
-    currentPlayer().style.left = `${playerPositionX() + 2}px`
+    currentPlayer().style.left = `${playerPositionX() + 4}px`
     }
   }
 
   static movePlayerUp(){
     if (playerPositionY() > 8){
-    currentPlayer().style.top = `${playerPositionY() - 2}px`
+    currentPlayer().style.top = `${playerPositionY() - 4}px`
     }
 
   }
 
   static movePlayerDown(){
     if (playerPositionY() < 600){
-    currentPlayer().style.top = `${playerPositionY() + 2}px`
+    currentPlayer().style.top = `${playerPositionY() + 4}px`
     }
 
 
