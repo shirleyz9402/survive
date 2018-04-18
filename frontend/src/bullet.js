@@ -1,4 +1,3 @@
-// const currentBullet = () => (document.getElementsByClassName('bullet')[data.bullet])
 const findBullet = function(id){
   return document.querySelector(`[data-bullet="${id}"]`)
 }
@@ -10,13 +9,7 @@ const bulletPositionY = function(id){
   let bullet = findBullet(id)
   return parseInt(bullet.style.top.replace('px',''))
 }
-// const playerPositionX =function(){
-//   return parseInt(bulletArray.last.style.left.replace("px",""))
-// }
-//
-// const playerPositionY = function(){
-//   return parseInt(bulletArray.last.style.top.replace("px",""))
-// }
+
 let bulletArray = []
 let bulletId = 0
 class Bullet{
