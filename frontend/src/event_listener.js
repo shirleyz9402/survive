@@ -35,17 +35,17 @@ static currentMoves(){
     bullet.renderBullet()
     bullet.shootDown()
   }
-  if (key[65]){
+  else if (key[65]){
     let bullet = new Bullet
     bullet.renderBullet()
     bullet.shootLeft()
   }
-  if (key[68]){
+  else if (key[68]){
     let bullet = new Bullet
     bullet.renderBullet()
     bullet.shootRight()
   }
-  if (key[87]){
+  else if (key[87]){
     let bullet = new Bullet
     bullet.renderBullet()
     bullet.shootUp()
