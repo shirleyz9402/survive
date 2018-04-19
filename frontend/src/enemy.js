@@ -41,14 +41,16 @@ const enemyCollisionCheck = function(enemyId){
     if (enemyCollisionCheck(enemyId)){
       findEnemy(enemyId).remove()
       Enemy.clearEnemy(enemyId)
-      clearInterval()
+      // clearInterval()
       Player.last().health--
       // debugger;
       console.log(Player.last().health)
       if (Player.last().health === 0){
         Adapter.gameOver(Player.last())
         let gameScreen = document.getElementById('game-screen')
-        gameScreen.innerHTML = `<h1>${Player.last().name}: ${Player.last().score} </h1>`
+        gameScreen.innerHTML = `<div id="final"><h1>Player: ${Player.last().name}: ${Player.last().score} points</h1></div>`
+        clearInterval(enemyInterval())
+
       }
     }
 
