@@ -19,7 +19,7 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       body: JSON.stringify({name: name})
     }).then( e => {
       let player = new Player(document.getElementById('name').value)
-      debugger
+      // debugger
       console.log(player)}).then( e => {
       gameContent.innerHTML = ""
       const gameScreen = document.createElement('div')
@@ -30,6 +30,8 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       const player = document.createElement('div')
       player.id = 'player'
       player.style = "top: 300px; left:700px"
+      player.style.height = "30px"
+      player.style.width = "15px"
       gameScreen.appendChild(player)
 
     })

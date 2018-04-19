@@ -43,11 +43,11 @@ const enemyCollisionCheck = function(enemyId){
       Enemy.clearEnemy(enemyId)
       clearInterval()
       Player.last().health--
-      debugger;
+      // debugger;
       console.log(Player.last().health--)
-      if (Player.last().health === 0){
-
-      }
+      // if (Player.last().health === 0){
+      //
+      // }
     }
 
   }
@@ -73,7 +73,7 @@ renderEnemy(){
   enemy.style =`top:${randomRange(8,600)}px ; left:${randomRange(8,1404)}px`
   enemy.style.width = "20px "
   enemy.style.height= "30px"
-  enemy.innerHTML = `<img class="image" src="/Users/arbi/Documents/Projects/Personal Projects/survive/frontend/assets/images/fly.png" >`
+  enemy.innerHTML = `<img class="image" src="/Users/shirleyzhang/Development/code/survive/frontend/assets/images/fly.png" >`
   enemy.dataset.enemy = this.id
   gameScreen.appendChild(enemy)
   movementPatterns[this.movement](this.id)

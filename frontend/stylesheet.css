@@ -8,8 +8,7 @@
 }
 
 #player {
-  width: 15px;
-  height: 30px;
+
   background: white;
   position: absolute;
 }
@@ -32,5 +31,5 @@
 #playerImage{
   width: 15;
   height: 30;
-  
+
 }
