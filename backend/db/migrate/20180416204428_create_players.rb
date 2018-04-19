@@ -4,6 +4,7 @@ class CreatePlayers < ActiveRecord::Migration[5.1]
       t.string :name
       t.integer :health, :default => 100
       t.string :image
+      t.integer :score, :default => 0
       t.boolean :alive, :default => true
 
       t.timestamps

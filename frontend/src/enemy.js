@@ -47,6 +47,8 @@ const enemyCollisionCheck = function(enemyId){
       console.log(Player.last().health)
       if (Player.last().health === 0){
         Adapter.gameOver(Player.last())
+        let gameScreen = document.getElementById('game-screen')
+        gameScreen.innerHTML = `<h1>${Player.last().name}: ${Player.last().score} </h1>`
       }
     }
 

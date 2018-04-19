@@ -10,7 +10,7 @@ return parseInt(currentPlayer().style.top.replace("px",""))}
 let playerArray = []
 let playerId = 0
 class Player{
-  constructor(name, score = 0, height = 10, width = 5, speed = 4, health = 10){
+  constructor(name, score = 0, height = 10, width = 5, speed = 4, health = 1){
     this.name = name
     this.score = score
     this.height = height

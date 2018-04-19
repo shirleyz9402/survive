@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180417134411) do
     t.string "name"
     t.integer "health", default: 100
     t.string "image"
+    t.integer "score", default: 0
     t.boolean "alive", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

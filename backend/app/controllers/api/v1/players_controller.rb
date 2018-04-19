@@ -11,4 +11,9 @@ class Api::V1::PlayersController < ApplicationController
     @player = Player.find(params[:id])
     render json: @player
   end
+  def update
+    @player = Player.find(params[:id])
+    @player.update(score: params[:score])
+    render json: @player
+  end
 end
