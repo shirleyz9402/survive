@@ -1,15 +1,15 @@
 #game-screen {
   width: 1400px;
   height: 600px;
-  background: black;
+  background: gray;
   padding-bottom: 10px;
   padding-right: 10px
 
 }
 
 #player {
-
-  background: white;
+  
+  background: url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/VictimsAndVillagers.png) -2px -144px ;
   position: absolute;
 }
 
@@ -28,7 +28,7 @@
   height: 30px;
 
 }
-#playerImage{
+#player-image{
   width: 15;
   height: 30;
 

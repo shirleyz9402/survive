@@ -30,8 +30,8 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       const player = document.createElement('div')
       player.id = 'player'
       player.style = "top: 300px; left:700px"
-      player.style.height = "30px"
-      player.style.width = "15px"
+      player.style.height = "16px"
+      player.style.width = "16px"
       gameScreen.appendChild(player)
 
     })

@@ -33,7 +33,8 @@ const bulletCollisionReturn = function(bulletId,enemyId){
     Enemy.clearEnemy(enemyId)
     clearInterval()
     bulletArray = Bullet.all().filter(bullet => bullet.id != bulletId)
-
+    Player.last().score++
+    console.log(Player.last().score)
     console.log(bulletArray)
     console.log(enemy)
     bullet.remove()

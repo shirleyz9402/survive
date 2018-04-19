@@ -44,10 +44,10 @@ const enemyCollisionCheck = function(enemyId){
       clearInterval()
       Player.last().health--
       // debugger;
-      console.log(Player.last().health--)
-      // if (Player.last().health === 0){
-      //
-      // }
+      console.log(Player.last().health)
+      if (Player.last().health === 0){
+        Adapter.gameOver(Player.last())
+      }
     }
 
   }
@@ -70,7 +70,9 @@ renderEnemy(){
   if (gameScreen){
   const enemy = document.createElement('div')
   enemy.className = 'enemy'
-  enemy.style =`top:${randomRange(8,600)}px ; left:${randomRange(8,1404)}px`
+  while (!(Math.abs(parseInt(enemy.style.left)-playerPositionX())>100 && Math.abs(parseInt(enemy.style.top)-playerPositionY()) > 75 )){
+    enemy.style =`top:${randomRange(8,600)}px ; left:${randomRange(8,1404)}px`}
+
   enemy.style.width = "20px "
   enemy.style.height= "30px"
   enemy.innerHTML = `<img class="image" src="/Users/shirleyzhang/Development/code/survive/frontend/assets/images/fly.png" >`

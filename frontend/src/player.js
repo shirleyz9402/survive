@@ -8,6 +8,7 @@ return parseInt(currentPlayer().style.left.replace("px",""))}
 const playerPositionY = function(){
 return parseInt(currentPlayer().style.top.replace("px",""))}
 let playerArray = []
+let playerId = 0
 class Player{
   constructor(name, score = 0, height = 10, width = 5, speed = 4, health = 10){
     this.name = name
@@ -16,6 +17,7 @@ class Player{
     this.width = width
     this.speed = speed
     this.health = health
+    this.id = ++playerId
     playerArray.push(this)
   }
    static last(){
@@ -45,6 +47,8 @@ class Player{
     if (playerPositionY() < 600){
     currentPlayer().style.top = `${playerPositionY() + 4}px`
     }
+
+
 
 
 
