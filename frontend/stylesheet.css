@@ -2,6 +2,9 @@
   width: 1400px;
   height: 600px;
   background: black;
+  padding-bottom: 10px;
+  padding-right: 10px
+
 }
 
 #player {
@@ -17,6 +20,17 @@
 }
 
 .enemy {
-  background: red;
   position: absolute;
+
+
+}
+.image{
+  width: 20px ;
+  height: 30px;
+
+}
+#playerImage{
+  width: 15;
+  height: 30;
+  
 }

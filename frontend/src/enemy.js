@@ -43,8 +43,9 @@ renderEnemy(){
   const enemy = document.createElement('div')
   enemy.className = 'enemy'
   enemy.style =`top:${randomRange(8,600)}px ; left:${randomRange(8,1404)}px`
-  enemy.style.width = "10px "
-  enemy.style.height= "15px"
+  enemy.style.width = "20px "
+  enemy.style.height= "30px"
+  enemy.innerHTML = `<img class="image" src="/Users/arbi/Documents/Projects/Personal Projects/survive/frontend/assets/images/fly.png" >`
   enemy.dataset.enemy = this.id
   gameScreen.appendChild(enemy)
   movementPatterns[this.movement](this.id)
@@ -62,7 +63,7 @@ const defaultMovement = (argument) =>{
 
   let enemyInterval = setInterval(() => {
 
-    let choiceRange = randomRange(0,30)
+    let choiceRange = randomRange(0,6)
     let distanceRange = randomRange(2,4)
 
       if (findEnemy(argument) == null){

@@ -32,9 +32,11 @@ const bulletCollisionReturn = function(bulletId,enemyId){
     findEnemy(enemyId).remove()
     Enemy.clearEnemy(enemyId)
     clearInterval()
-    bullet.remove()
-    bulletArray = Bullet.all.filter(bullet => bullet.id != bulletId)
+    bulletArray = Bullet.all().filter(bullet => bullet.id != bulletId)
+
+    console.log(bulletArray)
     console.log(enemy)
+    bullet.remove()
   }
 
 }
@@ -65,7 +67,6 @@ class Bullet{
     let bulletId = this.id
     const downInterval = setInterval(() => {
       if (findBullet(this.id) == null){
-        console.log("hello")
         clearInterval(downInterval)
       }
       else {
@@ -77,7 +78,6 @@ class Bullet{
           bullet.remove()
           bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
           clearInterval(downInterval)
-          console.log(bulletArray)
          }
        }
      }, 15)}
@@ -100,7 +100,6 @@ class Bullet{
           bullet.remove()
           bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
           clearInterval(downInterval)
-          console.log(bulletArray)
          }
        }
      }, 15)}
@@ -120,7 +119,6 @@ class Bullet{
           bullet.remove()
           bulletArray = bulletArray.filter(bullet => bullet.id != this.id)
           clearInterval(downInterval)
-          console.log(bulletArray)
          }
        }
      }, 15)}
