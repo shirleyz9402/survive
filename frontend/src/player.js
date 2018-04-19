@@ -7,16 +7,20 @@ return parseInt(currentPlayer().style.left.replace("px",""))}
 
 const playerPositionY = function(){
 return parseInt(currentPlayer().style.top.replace("px",""))}
-
+let playerArray = []
 class Player{
-  constructor(name,score = 0,height = 10,width = 5,speed = 4){
+  constructor(name, score = 0, height = 10, width = 5, speed = 4, health = 10){
     this.name = name
     this.score = score
     this.height = height
     this.width = width
     this.speed = speed
+    this.health = health
+    playerArray.push(this)
   }
-
+   static last(){
+    return playerArray[playerArray.length - 1]
+  }
   static movePlayerLeft(){
 
     if (playerPositionX() > 8){
@@ -45,32 +49,7 @@ class Player{
 
 
   }
-  // static shootDown(){
-  // }
-  //
-  // static shootUp (){}
-  //
-  // static shootRight(){}
-  //
-  // static shootLeft(){}
 
-
-  //
-  // static movePlayerUpRight(){
-  //
-  // }
-  //
-  // static movePlayerUpLeft(){
-  //
-  // }
-  //
-  // static movePlayerDownRight(){
-  //
-  // }
-  //
-  // static movePlayerDownLeft(){
-  //
-  // }
 
 
 

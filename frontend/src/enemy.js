@@ -23,11 +23,39 @@ const enemyInterval = function(){ setInterval(()=>{
 
 enemyInterval()
 
+const enemyCollisionCheck = function(enemyId){
+  player = currentPlayer()
+  enemy = findEnemy(enemyId)
+  return !(
+    ((enemyPositionY(enemyId) + parseInt(enemy.style.height)) < (playerPositionY())) ||
+    (enemyPositionY(enemyId) > (playerPositionY() + parseInt(player.style.height))) ||
+    ((enemyPositionX(enemyId) + parseInt(enemy.style.width)) < playerPositionX()) ||
+    (enemyPositionX(enemyId) > (playerPositionX() + parseInt(player.style.width))));
+
+  }
+
+
+  const enemyCollisionReturn = function(enemyId){
+    player = currentPlayer()
+    enemy = findEnemy(enemyId)
+    if (enemyCollisionCheck(enemyId)){
+      findEnemy(enemyId).remove()
+      Enemy.clearEnemy(enemyId)
+      clearInterval()
+      Player.last().health--
+      debugger;
+      console.log(Player.last().health--)
+      if (Player.last().health === 0){
+
+      }
+    }
+
+  }
 class Enemy {
 
 static all(){
-  return enemyArray}
-
+  return enemyArray
+}
 
 constructor(hp = 1, damage = 1, movement = 0){
   this.hp = hp
@@ -59,7 +87,7 @@ static clearEnemy(id){
 
 const defaultMovement = (argument) =>{
 
-    let enemy = findEnemy(argument)
+  let enemy = findEnemy(argument)
 
   let enemyInterval = setInterval(() => {
 
@@ -69,6 +97,7 @@ const defaultMovement = (argument) =>{
       if (findEnemy(argument) == null){
       clearInterval(enemyInterval)}
       else{
+        enemyCollisionReturn(argument)
         if(enemyPositionX(argument) >= 8 && choiceRange === 1){////leftmove
           enemy.style.left = `${enemyPositionX(argument) - distanceRange}px`
           }

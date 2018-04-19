@@ -41,6 +41,8 @@ const bulletCollisionReturn = function(bulletId,enemyId){
 
 }
 
+
+
 class Bullet{
   constructor(){
   this.id = ++bulletId
