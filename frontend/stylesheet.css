@@ -1,9 +1,10 @@
 #game-screen {
   width: 1400px;
   height: 600px;
-  background: gray;
+  background: url('/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Background.png');
   padding-bottom: 10px;
   padding-right: 10px
+
 
 }
 
@@ -13,7 +14,7 @@
 }
 
 .bullet {
-  background: blue;
+  background: url('/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Fireball.png');
   position: absolute;
 }
 

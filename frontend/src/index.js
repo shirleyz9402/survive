@@ -22,6 +22,9 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       // debugger
       console.log(player)}).then( e => {
       gameContent.innerHTML = ""
+      gameContent.innerHTML = `<audio loop autoplay>
+        <source src="/Users/shirleyzhang/Development/code/survive/frontend/assets/music/Carpenter Brut - LEATHER TEETH - 01 Leather Teeth.mp3" type="audio/mpeg"></audio>`
+
       const gameScreen = document.createElement('div')
       gameScreen.id = 'game-screen'
       gameContent.appendChild(gameScreen)
@@ -31,10 +34,13 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       player.id = 'player'
       player.style = "top: 300px; left:700px"
       player.style.height = "16px"
-      player.style.width = "16px"
+      player.style.width = "15px"
       player.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/VictimsAndVillagers.png) ${playerSpriteRender}`
       gameScreen.appendChild(player)
-      enemyInterval()
+      enemySpawn()
+
+
+
 
     })
     }

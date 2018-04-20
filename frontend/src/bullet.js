@@ -28,16 +28,23 @@ const bulletCollisionCheck = function(bulletId,enemyId){
 const bulletCollisionReturn = function(bulletId,enemyId){
   bullet = findBullet(bulletId)
   enemy = findEnemy(enemyId)
+  let enemyX = enemyPositionX(enemyId)
+  let enemyY = enemyPositionY(enemyId)
   if (bulletCollisionCheck(bulletId,enemyId)){
     findEnemy(enemyId).remove()
     Enemy.clearEnemy(enemyId)
     clearInterval()
     bulletArray = Bullet.all().filter(bullet => bullet.id != bulletId)
     Player.last().score++
+    setX()
     console.log(Player.last().score)
     console.log(bulletArray)
     console.log(enemy)
     bullet.remove()
+    deadFlyRender(enemyY,enemyX)
+
+
+
   }
 
 }

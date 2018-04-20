@@ -20,7 +20,6 @@ key[e.which] = false
 }
 
 static currentMoves(){
-  console.log()
   if (key[37]){
     Player.movePlayerLeft()
   }
@@ -66,7 +65,6 @@ let step = true
 const playerSprite = ()=> {
   if(key[38]){
     //// run up
-    console.log("up")
     if (step === true){
       step = false
      playerSpriteRender = "-49px -144px"
@@ -78,7 +76,6 @@ const playerSprite = ()=> {
   }
   else if(key[40]){
       //// run down
-      console.log("down")
     if (step === true){
       step = false
      playerSpriteRender = "-80px -128px"
@@ -90,7 +87,6 @@ const playerSprite = ()=> {
   }
   else if(key[39]){
       //// run right
-      console.log("right")
     if (step === true){
       step = false
      playerSpriteRender = "-16px -144px"
@@ -103,7 +99,6 @@ const playerSprite = ()=> {
   }
   else if(key[37]){
           //// run left
-          console.log("left")
     if (step === true){
       step = false
      playerSpriteRender = "-64px -129px"
@@ -114,7 +109,6 @@ const playerSprite = ()=> {
     }
   }
   else {playerSpriteRender = "-2px -144px"}
-  console.log("assignment")
   document.querySelector("#player").style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/VictimsAndVillagers.png) ${playerSpriteRender}`
 
 }
