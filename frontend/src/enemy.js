@@ -21,7 +21,7 @@ const enemyInterval = function(){ setInterval(()=>{
   protoEnemy.renderEnemy()
 },4000)}
 
-enemyInterval()
+
 
 const enemyCollisionCheck = function(enemyId){
   player = currentPlayer()

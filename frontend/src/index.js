@@ -34,6 +34,7 @@ const gameScreen = () => (document.querySelector("#game-screen"))
       player.style.width = "16px"
       player.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/VictimsAndVillagers.png) ${playerSpriteRender}`
       gameScreen.appendChild(player)
+      enemyInterval()
 
     })
     }
