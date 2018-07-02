@@ -4,20 +4,20 @@ class Adapter{
     console.log(typeof player.score)
 
     let dbPlayer = null
-    fetch(`http://localhost:3000/api/v1/players`).then(players => players.json()).then(players => {
+    fetch(`http://localhost:4000/api/v1/players`).then(players => players.json()).then(players => {
       dbPlayer = players.find(p => p.name === player.name)
     }).then(players => {
 
-    fetch(`http://localhost:3000/api/v1/players/${dbPlayer.id}`, {
+    fetch(`http://localhost:4000/api/v1/players/${dbPlayer.id}`, {
       method: "PATCH",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({score: player.score})
     })
   })
-
-  }
-
 }
+}
+
+
 
   // function renderLeaderBoard(){
   //     return `

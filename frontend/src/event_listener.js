@@ -109,6 +109,6 @@ const playerSprite = ()=> {
     }
   }
   else {playerSpriteRender = "-2px -144px"}
-  document.querySelector("#player").style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/VictimsAndVillagers.png) ${playerSpriteRender}`
+  document.querySelector("#player").style.background = ` url(assets/images/VictimsAndVillagers.png) ${playerSpriteRender}`
 
 }

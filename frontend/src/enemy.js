@@ -98,7 +98,7 @@ renderEnemy(){
 
   enemy.style.width = "40px "
   enemy.style.height= "20px"
-  enemy.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Fly.png) `
+  enemy.style.background = ` url(assets/images/Fly.png) `
   enemy.dataset.enemy = this.id
   gameScreen.appendChild(enemy)
   movementPatterns[this.movement](this.id)

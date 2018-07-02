@@ -11,11 +11,11 @@ const deadFlyRender = function(enemyY,enemyX){
   dead.style.height = "20px"
   dead.style.position = "absolute"
 
-  dead.style.background = `url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Flyd1.png)`
+  dead.style.background = `url(assets/images/Flyd1.png)`
   document.querySelector("#game-screen").appendChild(dead)
-  setTimeout(()=>{dead.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Flyd2.png)`
-    setTimeout(()=>{dead.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Flyd3.png)`
-      setTimeout(()=>{dead.style.background = ` url(/Users/shirleyzhang/Development/code/survive/frontend/assets/images/Flyd4.png)`},250)
+  setTimeout(()=>{dead.style.background = ` url(assets/images/Flyd2.png)`
+    setTimeout(()=>{dead.style.background = ` url(assets/images/Flyd3.png)`
+      setTimeout(()=>{dead.style.background = ` url(assets/images/Flyd4.png)`},250)
     },250)
   },250)
 }
